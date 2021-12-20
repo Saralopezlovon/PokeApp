@@ -3,11 +3,14 @@ import Card from "./Card/Card"
 
 const PokeList = (props) => {
 
-  // const pokemonData = props.infoPokemon
+  const paintPokemons = () =>{   
+    return props.infoPokemon.map((item,i)=> <Card infoPokemon={item} key={i}/>)
+  }
+
   
-  return (<div>
-    <Card infoPokemon={props.infoPokemon} />
-    </div>);
+  return <>
+    {paintPokemons()}
+    </>;
 };
 
 export default PokeList;

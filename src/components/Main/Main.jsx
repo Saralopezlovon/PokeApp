@@ -7,8 +7,8 @@ import { useDebounce } from "use-debounce";
 
 const Main = () => {
   const [input, setInput] = useState(""); //Estado inicial del input 
-  const [pokemon, setPokemon] = useState({}); //Estado inicial de los pokemon
-  const [debouncedText] = useDebounce(input, 1000);
+  const [pokemon, setPokemon] = useState([]); //Estado inicial de los pokemon
+  const [debouncedText] = useDebounce(input, 2000);
 
   //Función parametrizada por el valor del input de Form y cambiar estado
   const setInfo = (pokemonSearched) =>{
@@ -18,15 +18,15 @@ const Main = () => {
   //Fetch con axios para obtener los datos del pokemon buscado y añadirlo al estado
   const getPokemon = async (item) =>{
 
-    const pokemon= item.pokemonSearched
+    const pokemonName= item.pokemonSearched
     
-    const resp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`)
+    const resp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`)
 
     const pokemonData = {
       name: resp.data.species.name,
       imagen: resp.data.sprites.front_default
     }
-    setPokemon(pokemonData)    
+    setPokemon([...pokemon, pokemonData])    
   } 
 
   useEffect(() => {
