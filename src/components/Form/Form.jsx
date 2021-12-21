@@ -13,7 +13,7 @@ const Form = () => {
 
   return ( <div>
     <h1>Busca un pokemon </h1>
-    <form >
+    <form onSubmit={(e)=>{e.preventDefault()}}>
       <input type="text" id="pokemonSearched" name="pokemonSearched" placeholder="Buscar" onChange={handleChange}/>                        
       
     </form> 

@@ -23,20 +23,20 @@ function App(props) {
   //Fetch con axios para obtener los datos del pokemon buscado y añadirlo al estado
   const getPokemon = async (item) =>{
 
-    const pokemonName= item.pokemonSearched
+    const pokemonName= (item.pokemonSearched)
 
     //Si el input esta lleno y el pokemon buscado NO existe en mi lista de pokemons, hazme el fetch
 
-    if(pokemonName.toLowerCase() && !(pokemon.find(element => element.name === pokemonName.toLowerCase())) ){        
+    if(pokemonName && !(pokemon.find(element => element.name === pokemonName.toLowerCase())) ){        
 
       try{
     
         const resp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`)
 
-        const name = (resp.data.species.name).charAt(0).toUpperCase() + (resp.data.species.name).slice(1)
+       
 
         const pokemonData = {
-          name: name,
+          name: resp.data.species.name,
           imagen: resp.data.sprites.versions["generation-v"]["black-white"].animated.front_default || resp.data.sprites.front_default  
         }
 
@@ -57,7 +57,7 @@ function App(props) {
     pokemon,
     setInfo
   }
-  
+
   return (
     <div className="App">
 
