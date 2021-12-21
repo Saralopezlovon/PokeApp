@@ -19,15 +19,30 @@ const Main = () => {
   const getPokemon = async (item) =>{
 
     const pokemonName= item.pokemonSearched
-    
-    const resp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`)
 
-    const pokemonData = {
-      name: resp.data.species.name,
-      imagen: resp.data.sprites.front_default
-    }
-    setPokemon([...pokemon, pokemonData])    
-  } 
+    //Si el input esta lleno y el pokemon buscado NO existe en mi lista de pokemons, hazme el fetch
+
+    if(pokemonName && !(pokemon.find(element => element.name === pokemonName)) ){        
+
+      try{
+    
+        const resp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`)
+
+        const pokemonData = {
+          name: resp.data.species.name,
+          imagen: resp.data.sprites.versions["generation-v"]["black-white"].animated.front_default || resp.data.sprites.front_default  
+        }
+
+        setPokemon([...pokemon, pokemonData]) 
+      
+      }catch(err){
+
+        console.log(err)
+
+        }
+  
+      }   
+  }
 
   useEffect(() => {
     getPokemon(debouncedText)
