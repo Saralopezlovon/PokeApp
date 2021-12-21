@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Form from '../Form';
 import PokeList from '../PokeList';
+import FormCreate from '../FormCreate';
+
 import axios from 'axios';
 import {Route, Routes} from 'react-router-dom'; //Para las rutas
 import { useDebounce } from "use-debounce";
@@ -50,8 +52,11 @@ const Main = () => {
 
   return(<main >
   <Routes>    
-    <Route path="/" element={<Form setInfo={setInfo}/>} />
-    <Route path="/list" element={<PokeList infoPokemon={pokemon}/>} />                  
+    <Route path="/search" element={<Form setInfo={setInfo}/>} />
+    <Route path="/" element={<PokeList infoPokemon={pokemon}/>} />
+    <Route path="/new" element={<FormCreate/>} />
+
+
   </Routes>
 </main>);
 };
