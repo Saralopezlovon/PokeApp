@@ -43,9 +43,7 @@ function App(props) {
         setPokemon([...pokemon, pokemonData]) 
       
       }catch(err){
-
         console.log(err)
-
         }
   
       }   
@@ -59,8 +57,7 @@ function App(props) {
     pokemon,
     setInfo
   }
-
-
+  
   return (
     <div className="App">
 
