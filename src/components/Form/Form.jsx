@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { pokeContext} from '../../context/pokeContext'
 
-const Form = (props) => {
+const Form = () => { 
 
+  const {setInfo} =useContext(pokeContext)
   
   const handleChange = (event) =>{
     event.preventDefault();
     const pokemonSearched = event.target.value 
-    props.setInfo(pokemonSearched)  
- 
+    setInfo(pokemonSearched)  
   }
 
   return ( <div>
