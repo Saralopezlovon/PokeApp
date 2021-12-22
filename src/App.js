@@ -11,13 +11,18 @@ import axios from 'axios';
 
 function App(props) {
 
-  const [input, setInput] = useState("prueba"); //Estado inicial del input 
+  const [input, setInput] = useState(""); //Estado inicial del input pokemon
   const [pokemon, setPokemon] = useState([]); //Estado inicial de los pokemon
   const [debouncedText] = useDebounce(input, 2000);
 
   //Función parametrizada por el valor del input de Form y cambiar estado
   const setInfo = (pokemonSearched) =>{
     setInput({pokemonSearched})     
+  }
+
+  //Función parametrizada por el valor del input del formulario de creación cambie el estado
+  const createPokemon = (data) =>{
+    setPokemon([...pokemon, data])     
   }
 
   //Fetch con axios para obtener los datos del pokemon buscado y añadirlo al estado
@@ -31,9 +36,7 @@ function App(props) {
 
       try{
     
-        const resp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`)
-
-       
+        const resp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`)       
 
         const pokemonData = {
           name: resp.data.species.name,
@@ -55,7 +58,9 @@ function App(props) {
 
   const dataP ={
     pokemon,
-    setInfo
+    setInfo,
+    createPokemon
+
   }
 
   return (
