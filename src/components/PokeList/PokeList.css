@@ -1,0 +1,10 @@
+.body-pokeList{
+    width: 1350px;
+    display:flex;
+    flex-wrap: wrap; 
+    margin-top: 80px; 
+    justify-content: center;
+    /* background-color: pink; */
+    margin-bottom: 70px; 
+    
+}
