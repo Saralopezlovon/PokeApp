@@ -40,7 +40,7 @@ function App(props) {
 
         const pokemonData = {
           name: resp.data.species.name,
-          imagen: resp.data.sprites.versions["generation-v"]["black-white"].animated.front_default || resp.data.sprites.front_default,
+          image: resp.data.sprites.versions["generation-v"]["black-white"].animated.front_default || resp.data.sprites.front_default,
           id: resp.data.id,
           type1:resp.data.types[0].type.name,
           type2: resp.data.types[1] ? resp.data.types[1].type.name : ""

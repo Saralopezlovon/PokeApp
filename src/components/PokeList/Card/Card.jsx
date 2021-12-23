@@ -1,4 +1,6 @@
 import React from "react";
+import './Card.css';
+
 
 const Card = ({infoPokemon}) => {
 
@@ -6,18 +8,15 @@ const Card = ({infoPokemon}) => {
   const type1 = (infoPokemon.type1).charAt(0).toUpperCase() + (infoPokemon.type1).slice(1)
   const type2 = (infoPokemon.type2).charAt(0).toUpperCase() + (infoPokemon.type2).slice(1)
 
-  const {imagen, id } = infoPokemon
+  const {image, id } = infoPokemon
 
-  return (
-
-    
-
-    <div>
-        <h1>{name}</h1>
-        <p>ID:{id}</p>      
-        <img src={imagen} alt={name}/>
-        <p>Tipo 1:{type1}</p>
-        {type2?<p>Tipo 2:{type2}</p>:""}
+  return (  
+    <div className="card">
+        <h1 className="title-card">{name}</h1>
+        <img className="img-card"src={image} alt={name}/>
+        <p className="id-card"><b>ID: {id}</b></p>      
+        <p className="type1"><b>Tipo 1: {type1}</b></p>
+        {type2?<p className="type2"><b>Tipo 2: {type2}</b></p>:""}
         
     </div>    
 );

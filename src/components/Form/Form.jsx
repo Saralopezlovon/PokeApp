@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import { pokeContext} from '../../context/pokeContext'
+import { pokeContext} from '../../context/pokeContext';
+import './Form.css';
 
 const Form = () => { 
 
@@ -11,11 +12,11 @@ const Form = () => {
     setInfo(pokemonSearched)  
   }
 
-  return ( <div>
-    <h1>Busca un pokemon </h1>
-    <form onSubmit={(e)=>{e.preventDefault()}}>
-      <input type="text" id="pokemonSearched" name="pokemonSearched" placeholder="Buscar" onChange={handleChange}/>                        
-      
+  return ( <div className="bodyFormSearch">
+    <h1 className="titleSection">¡Busca tus Pokemon favoritos! </h1>
+    <form className="formSearch" onSubmit={(e)=>{e.preventDefault()}}>
+      <input className="inputSearch" type="text" id="pokemonSearched" name="pokemonSearched" placeholder="Nombre pokemon" onChange={handleChange}/>                        
+      <p className="note">Ve a la lista de pokemon para verlos</p>
     </form> 
   </div>);
 

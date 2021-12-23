@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { pokeContext} from '../../context/pokeContext'
+import './FormCreate.css';
 
 const FormCreate = () => {  
 
@@ -12,25 +13,25 @@ const FormCreate = () => {
     createPokemon(data)
   }  
 
-  return (<div>
+  return (<div className="body-container">
 
-    <h1>Crea tu propio Pokemon</h1>
+    <h1 className="title">Crea tu propio Pokemon</h1>
 
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="id">ID:
-      <input type="number" placeholder="id" required {...register("id")} />
-      </label>
+    <form className="formCreate"onSubmit={handleSubmit(onSubmit)}>
+      <label htmlFor="id">ID: <br />
+      <input className="input-number"type="number" placeholder="Id" required {...register("id")} />
+      </label> <br />
 
-      <label htmlFor="name">Nombre:
-      <input type="text" placeholder="Pokemon" required {...register("name")}/>
-      </label>
+      <label htmlFor="name">Nombre: <br />
+      <input className="input-text" type="text" placeholder="Pokemon" required {...register("name")}/>
+      </label><br />
 
-      <label htmlFor="image">Imagen:
-      <input type="text" placeholder="Url imagen" required {...register("image")}/>
-      </label>
-
-      <label htmlFor="type1">Tipo 1:
-      <select name="type1" value="" required {...register("type1")} >
+      <label htmlFor="image">Imagen: <br />
+      <input className="input-text" type="text" placeholder="Url imagen" required {...register("image")}/>
+      </label><br />
+ 
+      <label htmlFor="type1">Tipo 1: <br />
+      <select className="input-select" name="type1" required {...register("type1")} >
         <option value="" disabled hidden>Tipo de pokemon</option>
         <option value="Bug">Bug</option>
         <option value="Dark">Dark</option>
@@ -51,10 +52,10 @@ const FormCreate = () => {
         <option value="Steel">Steel</option>
         <option value="Water">Water</option>
       </select>
-      </label>
+      </label><br />
 
-      <label htmlFor="type2">Tipo 2:
-      <select name="type2" value="" required {...register("type2")} >
+      <label htmlFor="type2">Tipo 2: <br />
+      <select className="input-select" name="type2" required {...register("type2")} >
         <option value="" disabled hidden>Tipo de pokemon</option>
         <option value="Bug">Bug</option>
         <option value="Dark">Dark</option>
@@ -78,7 +79,7 @@ const FormCreate = () => {
       </select>
       </label>
 
-      <input type="submit" />
+      <input className="form-submit" type="submit" />
       
 
     </form>
