@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
-import { BrowserRouter } from 'react-router-dom'; //Para utilizar rutas
+import { HashRouter } from 'react-router-dom'; //Para utilizar rutas
 import { pokeContext } from './context/pokeContext'; //Para utilizar context en apertura -> value={input} 
 
 import { useDebounce } from "use-debounce";
@@ -69,12 +69,12 @@ function App(props) {
   return (
     <div className="App">
 
-        <BrowserRouter> 
+        <HashRouter> 
             <Header/>
           <pokeContext.Provider value={dataP} >    
             <Main/>  
           </pokeContext.Provider>            
-        </BrowserRouter>
+        </HashRouter>
 
         <Footer/>
   
