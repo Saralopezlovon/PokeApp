@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/PokeApp/static/css/main.121bd6a6.css",
+    "main.js": "/PokeApp/static/js/main.eb8086e0.js",
+    "static/js/787.88fd8fe5.chunk.js": "/PokeApp/static/js/787.88fd8fe5.chunk.js",
+    "static/media/pikachu.png": "/PokeApp/static/media/pikachu.c12eb7529d7819c9dac9.png",
+    "static/media/fondo.jpg": "/PokeApp/static/media/fondo.2c5e49fe6366cd15656d.jpg",
+    "index.html": "/PokeApp/index.html",
+    "main.121bd6a6.css.map": "/PokeApp/static/css/main.121bd6a6.css.map",
+    "main.eb8086e0.js.map": "/PokeApp/static/js/main.eb8086e0.js.map",
+    "787.88fd8fe5.chunk.js.map": "/PokeApp/static/js/787.88fd8fe5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.121bd6a6.css",
+    "static/js/main.eb8086e0.js"
+  ]
+}
